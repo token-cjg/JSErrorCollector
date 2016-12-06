@@ -1,10 +1,18 @@
 JSErrorCollector
 ---------------
+## Now not just errors! ##
 
-This project allows to capture JavaScript errors while running tests with [WebDriver] (currently only in Java).
+
+This project allows to capture JavaScript ~~errors~~ logs while running tests with [WebDriver] (currently only in Java).
 Ideally this feature should be built-in [WebDriver] but it is not (yet?) the case (see WebDriver issue [API for checking for JavaScript errors on the page] [1] for details).
 Other information concerning JavaScript error capturing with WebDriver is available in this [blog post] [3].
 
+## Building ##
+
+```java
+cd firefox
+bash build.sh
+```
 
 ## Features ##
 

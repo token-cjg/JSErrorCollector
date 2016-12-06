@@ -67,11 +67,24 @@ var JSErrorCollector_ErrorConsoleListener =
     {
         if (document && consoleMessage)
         {
-          var err = {
-						message: consoleMessage
-      		};
-        	console.log("collecting JS message", err)
-        	JSErrorCollector.addError(err);
+					var test_error = consoleMessage.QueryInterface(Components.interfaces.nsIScriptError)
++					var test_message = consoleMessage.QueryInterface(Components.interfaces.nsIConsoleMessage)
++
++					var message = "";
++					if (test_error) {
++						message = test_error;
++					}
++					if (test_message) {
++					  message = test_message;
++					}
++
++					if (message !== "") {
++          	var err = {
++							message: message
++      			};
++	        	console.log("collecting JS message", err)
++	        	JSErrorCollector.addError(err);
++				  }
         }
 
         return false;
